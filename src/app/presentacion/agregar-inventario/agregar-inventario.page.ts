@@ -13,10 +13,13 @@ export class AgregarInventarioPage implements OnInit {
       name:'CPU'
     },
     {
-      name:'iPhone'
+      name:'SmartPhone'
     },
     {
       name:'Mouse'
+    },
+    {
+      name:'Otro'
     }
   ]
 

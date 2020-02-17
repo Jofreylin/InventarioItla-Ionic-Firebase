@@ -12,7 +12,8 @@ export class Search {
         if (val && val.trim() != '') {
             this.itemsData = this.itemsData.filter((item) => {
                 
-                return (item.title.toLowerCase().includes(val.toLowerCase()));
+                return (item.title.toLowerCase().includes(val.toLowerCase()))
+                || (item.code.toLowerCase().includes(val.toLowerCase()));
             })
         }
         
@@ -22,6 +23,7 @@ export class Search {
         this.itemsData = [
             {
                 title: 'Ryzen 5 2600',
+                code: 'AHSBF6JH',
                 category: 'CPU',
                 quantity: '5',
                 price: '10,000.00',
@@ -30,31 +32,17 @@ export class Search {
             },
             {
                 title: 'iPhone 6',
-                category: 'iPhone',
+                code: 'AJKSHD78JS',
+                category: 'SmartPhone',
                 quantity: '10',
                 price: '9,000.00',
                 description: '16GB',
                 date: 'Sat Feb 15 2020'
             },
             {
-                title: 'iPhone 8',
-                category: 'iPhone',
-                quantity: '10',
-                price: '9,000.00',
-                description: '16GB',
-                date: 'Sat Feb 15 2020'
-            },
-            {
-                title: 'iPhone 9',
-                category: 'iPhone',
-                quantity: '10',
-                price: '9,000.00',
-                description: '16GB',
-                date: 'Sat Feb 15 2020'
-            },
-            {
-                title: 'iPhone 10',
-                category: 'iPhone',
+                title: 'Samsung Galaxy S8',
+                code: 'CNVH80LKS',
+                category: 'SmartPhone',
                 quantity: '10',
                 price: '9,000.00',
                 description: '16GB',

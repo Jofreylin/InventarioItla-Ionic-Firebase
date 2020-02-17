@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  { path: 'home', loadChildren: () => import('./presentacion/home/home.module').then( m => m.HomePageModule)},
   {
     path: 'login',
     loadChildren: () => import('./presentacion/login/login.module').then( m => m.LoginPageModule)
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path: 'agregar-inventario',
     loadChildren: () => import('./presentacion/agregar-inventario/agregar-inventario.module').then( m => m.AgregarInventarioPageModule)
+  },
+  {
+    path: 'modificar-inventario',
+    loadChildren: () => import('./presentacion/modificar-inventario/modificar-inventario.module').then( m => m.ModificarInventarioPageModule)
   },
   
 ];
