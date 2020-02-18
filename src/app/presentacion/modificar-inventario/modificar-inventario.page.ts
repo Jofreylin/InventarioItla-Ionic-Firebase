@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Modify } from 'src/app/logica/modify.class';
+ 
 
 @Component({
   selector: 'app-modificar-inventario',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModificarInventarioPage implements OnInit {
 
+  code: string = '';
+
+  modifying: Modify = new Modify();
+
   constructor() { }
 
   ngOnInit() {
   }
-
 }

@@ -3,6 +3,8 @@ import { Search } from '../../logica/search.class';
 import { Delete } from 'src/app/logica/detele.class';
 import {AlertController} from '@ionic/angular';
 import {Router} from '@angular/router'
+import { Modify } from 'src/app/logica/modify.class';
+
 
 @Component({
   selector: 'app-lista-inventario',
@@ -19,11 +21,16 @@ export class ListaInventarioPage implements OnInit {
 
   }
 
+
+  modifying: Modify = new Modify();
+
   itemss: Search = new Search();
 
   deleting: Delete = new Delete();
 
   items: any[];
+
+  temporalItems: any[];
 
   textobuscar: '';
 
@@ -57,7 +64,10 @@ export class ListaInventarioPage implements OnInit {
 
   }
 
-  modify() {
+  modify(i) {
+    this.temporalItems = this.itemss.itemsData.slice(i,this.itemss.itemsData.length);
+    this.modifying.arreglo = this.temporalItems.slice(0,1);
+    console.log(this.modifying.arreglo);
     this.router.navigate(['/modificar-inventario']);
   }
 
