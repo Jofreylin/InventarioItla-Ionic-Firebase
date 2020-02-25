@@ -21,7 +21,7 @@
       <ion-list>
         <ion-menu-toggle *ngFor="let p of pages">
 
-          <ion-item (click)="goToPage(p)" routerDirection="root" [class.active-item]="selectedPath === p.url">
+          <ion-item (click)="goToPage(p)" routerDirection="root">
             <ion-label>{{ p.title }}</ion-label>
 
             <ion-icon [name]="p.icon" slot="start"></ion-icon>

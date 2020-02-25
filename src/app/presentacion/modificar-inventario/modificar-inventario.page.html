@@ -11,37 +11,35 @@
 <ion-content padding>
 <form>
   <ion-list>
-   <ion-item >
+   <ion-item *ngIf="producto">
      <ion-label position="stacked">Codigo <ion-text color="danger">*</ion-text></ion-label>
-     <ion-input type="text" name="code" value="{{modifying.code}}" disabled></ion-input>
+     <ion-input required type="text" name="code" value="{{productoId}}" disabled></ion-input>
    </ion-item>
-   <ion-item>
+   <ion-item *ngIf="producto">
+    <ion-label position="stacked">Codigo Secundario <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required type="text" name="secondCode" [(ngModel)]="producto.secondCode"></ion-input>
+  </ion-item>
+   <ion-item *ngIf="producto">
     <ion-label position="stacked">Nombre <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input type="text" name="name" value="{{modifying.title}}"></ion-input>
+    <ion-input required type="text" name="name" [(ngModel)]="producto.title"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label>Categoria</ion-label>
-    
-    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Selecciona una">
-      
-      <ion-select-option  *ngFor="let category of categories" value="{{modifying.category}}">
-        {{category.name}}
-      </ion-select-option>
-    </ion-select>
+    <ion-label position="stacked">Categoria <ion-text color="danger">*</ion-text></ion-label>
+    <ion-input required type="text" name="category" [(ngModel)]="producto.category"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">Cantidad <ion-text color="danger">*</ion-text></ion-label>
-    <ion-input type="number" name="quantity" value="{{modifying.quantity}}"></ion-input>
+    <ion-input required type="number" name="quantity" [(ngModel)]="producto.quantity" ></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">Precio</ion-label>
-    <ion-input type="number" name="price" value="{{modifying.price}}"></ion-input>
+    <ion-input required type="number" name="price" [(ngModel)]="producto.price"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">Descripcion </ion-label>
-    <ion-input type="text" name="description" value="{{modifying.description}}"></ion-input>
+    <ion-input type="text" name="description" [(ngModel)]="producto.description"></ion-input>
   </ion-item>
-  <ion-button expand="block" color="success">MODIFICAR</ion-button>
+  <ion-button expand="block" (click)="modifyProducto()" color="success">MODIFICAR</ion-button>
 </ion-list>
 </form>
 </ion-content>

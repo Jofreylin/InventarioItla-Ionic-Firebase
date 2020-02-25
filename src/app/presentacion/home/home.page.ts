@@ -8,7 +8,11 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(public router: Router) {}
+  date: Date;
+
+  constructor(public router: Router) {
+    console.log(this.date)
+  }
 
   onLogin(){
     this.router.navigate(['/login']);

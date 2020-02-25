@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import {Search} from '../../logica/search.class'
+import {Search} from '../../logica/search.class';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {AuthService} from '../../datos/auth.service';
+import {InventarioService} from '../../datos/inventario.service';
 
 @Component({
   selector: 'app-homeinventario',
@@ -14,7 +17,7 @@ export class HomeinventarioPage implements OnInit {
 
   search: Search = new Search();
 
-  cantidad: number = 0;
+  cantidad: number;
 
   pages: Array<any> =[
     {
@@ -32,15 +35,21 @@ export class HomeinventarioPage implements OnInit {
 
   selectedPath = '';
 
-  constructor(public router: Router, private menu: MenuController) {
-    this.cantidad = this.search.getCountItems();
+  constructor(private invService: InventarioService,public router: Router, private menu: MenuController, private authSvc: AuthService, private afAuth: AngularFireAuth) {
+    
 
    }
 
   ngOnInit() {
+    this.invService.getInventario().subscribe(resultado =>{
+      this.cantidad = resultado.length;
+    })
+    
   }
 
   onLogout(){
+
+    this.afAuth.auth.signOut();
     this.router.navigate(['/home']);
   }
 

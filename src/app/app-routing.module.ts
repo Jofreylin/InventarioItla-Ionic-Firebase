@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from './datos/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -10,19 +11,32 @@ const routes: Routes = [
   },
   {
     path: 'homeinventario',
-    loadChildren: () => import('./presentacion/homeinventario/homeinventario.module').then( m => m.HomeinventarioPageModule)
+    loadChildren: () => import('./presentacion/homeinventario/homeinventario.module').then( m => m.HomeinventarioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'lista-inventario',
-    loadChildren: () => import('./presentacion/lista-inventario/lista-inventario.module').then( m => m.ListaInventarioPageModule)
+    loadChildren: () => import('./presentacion/lista-inventario/lista-inventario.module').then( m => m.ListaInventarioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'agregar-inventario',
-    loadChildren: () => import('./presentacion/agregar-inventario/agregar-inventario.module').then( m => m.AgregarInventarioPageModule)
+    loadChildren: () => import('./presentacion/agregar-inventario/agregar-inventario.module').then( m => m.AgregarInventarioPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'modificar-inventario/:id',
+    loadChildren: () => import('./presentacion/modificar-inventario/modificar-inventario.module').then( m => m.ModificarInventarioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'modificar-inventario',
-    loadChildren: () => import('./presentacion/modificar-inventario/modificar-inventario.module').then( m => m.ModificarInventarioPageModule)
+    loadChildren: () => import('./presentacion/modificar-inventario/modificar-inventario.module').then( m => m.ModificarInventarioPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./presentacion/register/register.module').then( m => m.RegisterPageModule)
   },
   
 ];
