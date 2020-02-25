@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Modify } from 'src/app/logica/modify.class';
 import {InventarioService} from '../../datos/inventario.service';
 import {ProductInfo} from '../../logica/productInfo.class';
 import {ActivatedRoute} from '@angular/router';
@@ -22,8 +21,6 @@ export class ModificarInventarioPage implements OnInit {
     secondCode: ''
   };
   productoId = null;
-
-  modifying: Modify = new Modify();
 
   constructor(private route: ActivatedRoute, private nav: NavController,
     private invService: InventarioService, private loadingController: LoadingController) {

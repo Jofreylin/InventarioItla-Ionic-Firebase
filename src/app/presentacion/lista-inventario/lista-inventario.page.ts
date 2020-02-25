@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Search } from '../../logica/search.class';
-import { Delete } from 'src/app/logica/detele.class';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router'
-import { Modify } from 'src/app/logica/modify.class';
 import { InventarioService } from '../../datos/inventario.service';
 import { Observable } from 'rxjs';
 import { ProductInfo } from 'src/app/logica/productInfo.class';
@@ -14,10 +11,6 @@ import { ProductInfo } from 'src/app/logica/productInfo.class';
   styleUrls: ['./lista-inventario.page.scss'],
 })
 export class ListaInventarioPage implements OnInit {
-
-  modifying: Modify = new Modify();
-
-  
 
   items: any[];
 

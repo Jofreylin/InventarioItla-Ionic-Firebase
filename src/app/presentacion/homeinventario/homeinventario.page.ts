@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import {Search} from '../../logica/search.class';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AuthService} from '../../datos/auth.service';
 import {InventarioService} from '../../datos/inventario.service';
@@ -14,8 +13,6 @@ import {InventarioService} from '../../datos/inventario.service';
 
 
 export class HomeinventarioPage implements OnInit {
-
-  search: Search = new Search();
 
   cantidad: number;
 
